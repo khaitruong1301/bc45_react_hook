@@ -22,6 +22,12 @@ const Header = (props) => {
           <NavLink className="dropdown-item" to="/use-state-demo">Use state</NavLink>
           <NavLink className="dropdown-item" to="/use-effect-demo">UseEffect</NavLink>
           <NavLink className="dropdown-item" to="/use-callback-demo">UseCallBack</NavLink>
+          <NavLink className="dropdown-item" to="/use-memo-demo">UseMemoDemo</NavLink>
+          <NavLink className="dropdown-item" to="/use-ref-demo">UseRef</NavLink>
+          <NavLink className="dropdown-item" to="/use-redux-demo">Redux hook</NavLink>
+          <NavLink className="dropdown-item" to="/use-navigate-demo">Use Navigate</NavLink>
+          <NavLink className="dropdown-item" to="/use-search-params">Use search params</NavLink>
+        
         </div>
       </li>
     </ul>
