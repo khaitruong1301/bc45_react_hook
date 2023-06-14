@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 //Cấu hình router
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { unstable_HistoryRouter as HistoryRouter, Routes, Route } from 'react-router-dom'
 import HomeTemplate from './templates/HomeTemplate';
 import Home from './pages/Home';
 import Login from './pages/Login';
@@ -22,12 +22,17 @@ import UseNavigateDemo from './pages/Hooks/UseNavigateDemo';
 import Profile from './pages/Profile';
 import ForgotPass from './pages/ForgotPass';
 import UseSearchParamDemo from './pages/Hooks/UseSearchParamDemo/UseSearchParamDemo';
+//custom history 
+import { createBrowserHistory } from 'history'
+import HocDemo from './pages/HocDemo';
+import ContainerModal from './HOC/ContainerModal';
 
+export const customNavigate = createBrowserHistory();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
-    <BrowserRouter>
+    <HistoryRouter history={customNavigate}>
       <Routes>
         <Route path="" element={<HomeTemplate />}>
           <Route index element={<Home />}></Route>
@@ -44,12 +49,17 @@ root.render(
           <Route path='profile' element={<Profile />}></Route>
           <Route path='forgot-password' element={<ForgotPass />}></Route>
           <Route path='use-search-params' element={<UseSearchParamDemo />}></Route>
+          <Route path='hoc' element={<HocDemo />}></Route>
           <Route path='detail'>
             <Route path=':id' element={<Detail />}></Route>
           </Route>
         </Route>
       </Routes>
-    </BrowserRouter>
+      {/* modal container  */}
+      <ContainerModal />
+    </HistoryRouter>
+
+
   </Provider>
 );
 

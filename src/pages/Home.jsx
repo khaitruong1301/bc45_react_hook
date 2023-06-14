@@ -2,15 +2,13 @@
 import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import axios from 'axios';
+import { http } from '../util/config';
 const Home = () => {
 
   const [arrProduct, setArrProduct] = useState([]);
 
   const getProductApi = async () => {
-    const res = await axios({
-      url: 'https://shop.cyberlearn.vn/api/Product',
-      method: 'GET'
-    });
+    const res = await http.get('/api/Product');
 
     //Sau khi lấy dữ liệu từ api về thì đưa vào state
     setArrProduct(res.data.content);
