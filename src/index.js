@@ -26,6 +26,9 @@ import UseSearchParamDemo from './pages/Hooks/UseSearchParamDemo/UseSearchParamD
 import { createBrowserHistory } from 'history'
 import HocDemo from './pages/HocDemo';
 import ContainerModal from './HOC/ContainerModal';
+import ResponsiveItem from './HOC/ResponsiveItem';
+import HomeMobile from './pages/Mobile/HomeMobile';
+import Loading from './components/Loading';
 
 export const customNavigate = createBrowserHistory();
 
@@ -35,7 +38,7 @@ root.render(
     <HistoryRouter history={customNavigate}>
       <Routes>
         <Route path="" element={<HomeTemplate />}>
-          <Route index element={<Home />}></Route>
+          <Route index element={<ResponsiveItem component={Home} mobileComponent={HomeMobile} />}></Route>
           <Route path='login' element={<Login />}></Route>
           <Route path='register' element={<Register />}></Route>
           <Route path='contact' element={<Contact />}></Route>
@@ -57,6 +60,7 @@ root.render(
       </Routes>
       {/* modal container  */}
       <ContainerModal />
+      <Loading />
     </HistoryRouter>
 
 
